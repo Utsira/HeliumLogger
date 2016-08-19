@@ -26,9 +26,9 @@ import XCTest
     import Darwin
 #endif
 
-class TestLogger : XCTestCase {
-    
-    static var allTests : [(String, (TestLogger) -> () throws -> Void)] {
+class TestLogger: XCTestCase {
+
+    static var allTests: [(String, (TestLogger) -> () throws -> Void)] {
         return [
                     ("testInfo", testInfo),
                     ("testWarning", testWarning),
@@ -39,38 +39,38 @@ class TestLogger : XCTestCase {
                     ("testIsLogging", testIsLogging),
         ]
     }
-    
-    
+
+
     func testInfo() {
         Log.logger = HeliumLogger()
         Log.info("This is an info")
-        
+
     }
-    
+
     func testWarning() {
         Log.logger = HeliumLogger()
         Log.warning("This is a warning")
-        
+
     }
-    
+
     func testError() {
         Log.logger = HeliumLogger()
         Log.error("This is an error")
-        
+
     }
-    
+
     func testEntry() {
         Log.logger = HeliumLogger(.entry)
         Log.entry("This is an entry")
-        
+
     }
-    
+
     func testExit() {
         Log.logger = HeliumLogger(.exit)
         Log.exit("This is an exit")
-        
+
     }
-    
+
     func testLevel() {
         Log.logger = HeliumLogger(.warning)
 
@@ -98,5 +98,5 @@ class TestLogger : XCTestCase {
         XCTAssertFalse(Log.isLogging(.warning))
         XCTAssertFalse(Log.isLogging(.entry))
     }
-    
+
 }

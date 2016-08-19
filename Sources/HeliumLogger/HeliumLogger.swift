@@ -61,7 +61,7 @@ public class HeliumLogger {
         Log.logger = HeliumLogger()
         setbuf(stdout, nil)
     }
-    
+
     fileprivate var type: LoggerMessageType = .verbose
     public init (_ type: LoggerMessageType) {
         self.type = type
@@ -73,7 +73,7 @@ extension HeliumLogger : Logger {
     public func log(_ type: LoggerMessageType, msg: String,
         functionName: String, lineNum: Int, fileName: String ) {
 
-            let color : TerminalColor
+            let color: TerminalColor
 
             switch type {
                 case .warning:
@@ -119,7 +119,7 @@ extension HeliumLogger : Logger {
                 }
         }
     }
-    
+
     public func isLogging(_ type: LoggerMessageType) -> Bool {
         return type.rawValue >= self.type.rawValue
     }
